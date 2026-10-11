@@ -156,6 +156,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .radial .node:hover circle{fill:var(--fg)}
 .radial .node:hover .hrs{fill:#fff}
 .radial .spoke{stroke:var(--line);stroke-width:1}
+.radial .leg{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.06em;fill:var(--fg-2)}
 .radial .center-l{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.14em;fill:var(--fg-3)}
 .radial .center-n{font-family:var(--font-display);font-size:22px;font-weight:300;fill:var(--fg)}
 .radial .deptlbl{font-family:var(--font-mono);font-size:8.5px;letter-spacing:.2em;fill:#fff}
@@ -527,7 +528,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
     </div>
 
     <div class="chart-grid">
-      <svg class="radial" id="radial" viewBox="-60 -20 840 770" role="img" aria-label="Répartition des heures d'enseignement par semaine et par sujet, 2007-2023"></svg>
+      <svg class="radial" id="radial" viewBox="-60 -20 840 790" role="img" aria-label="Répartition des heures d'enseignement par semaine et par sujet, 2007-2023"></svg>
       <div class="counters" id="counters">
         <div class="counter cg" data-dept="cg">
           <div class="k"><i></i>Département de conception graphique</div>
@@ -918,6 +919,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
     g.appendChild(el('text',{x:C,y:C-2,'text-anchor':'middle',class:'center-n',fill:'#fff'},'7 784'));
     g.appendChild(el('text',{x:C,y:C+24,'text-anchor':'middle',class:'center-l',fill:'#9a9a9a'},'HEURES PRATIQUES'));
     g.appendChild(el('text',{x:C,y:C+52,'text-anchor':'middle',class:'center-n',fill:'#fff'},'2 744'));
+    const lg=el('g',{class:'legend'});
+    lg.appendChild(el('text',{x:-50,y:735,class:'leg'},'th. = heures de théorie / semaine'));
+    lg.appendChild(el('text',{x:-50,y:752,class:'leg'},'pr. = heures de travaux pratiques en atelier / semaine'));
+    g.appendChild(lg);
     svg.appendChild(g);
     svg.querySelectorAll('.center-l').forEach(t=>t.style.fill='#9a9a9a'); svg.querySelectorAll('.center-n').forEach(t=>t.style.fill='#fff');
 
